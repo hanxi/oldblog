@@ -1,0 +1,95 @@
+---
+layout: index
+title: 涵曦的博客
+tagline: 分享编程的点滴
+links:
+  - url: "http://hanxi.cnblogs.com"
+    name: "涵曦的博客园"
+  - url: "http://blog.codingnow.com/"
+    name: "云风"
+  - url: "http://coolshell.cn"
+    name: "酷壳"
+  - url: "http://mindhacks.cn/"
+    name: "刘未鹏"
+  - url: "http://www.cppfans.org/"
+    name: "C++爱好者"
+  - url: "http://www.vimer.cn/"
+    name: "朱念洋"
+  - url: "http://blog.evercoding.net"
+    name: "天外天"
+
+---
+{% include JB/setup %}
+
+<div class="row page-body">
+
+  <div class="span9">
+    {% for post in paginator.posts %}
+    <div class="main-container">
+      <div class="mainbody">
+        <h2><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h2>
+        <p>
+          Posted by <strong>{{ site.author.name }}</strong> at <strong>{{ post.date | date: "%Y-%m-%d" }}</strong> with tags {% for tag in post.tags %}<a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag }}-ref" rel="nofollow">{{ tag }}</a>{% if forloop.last %}{% else %}, {% endif %}{% endfor %}
+        </p>
+        {% capture posturl %}
+        {% endcapture %}
+        <div class="post_at_index thepost">
+        {{ post.content }}
+        </div>
+        <div style="clear: both;"></div>
+      </div>
+    </div>
+    {% endfor %}
+
+    {% include ever/pagination %}
+
+  </div>
+
+  <div class="span4">
+    <div class="side-container">
+      <div class="sidebar">
+        {% unless site.posts == empty %}
+        <h3>最新文章</h3>
+        <ul>
+        {% for post in site.posts limit: 10 %}
+          <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">
+            {{post.title }}</a></li>
+        {% endfor %}
+        </ul>
+        {% endunless %}
+      </div>
+    </div>
+
+    <div class="side-container">
+      <div class="sidebar">
+        {% unless site.categories == empty %}
+        <h3>分类</h3>
+        <ul class="tag_box">
+        {% assign categories_list = site.categories %}
+        {% include JB/categories_list %}
+        </ul>
+        {% endunless %}
+      </div>
+    </div>
+
+    <div class="side-container">
+      <div class="sidebar">
+        <h3>腾讯微博</h3>
+      {% include ever/weibo %}
+      </div>
+    </div>
+
+    {% if page.links %}
+    <div class="side-container">
+      <div class="sidebar">
+        <h3>友情链接</h3>
+        <ul>
+        {% assign links = page.links %}
+        {% include ever/links %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+</div>
