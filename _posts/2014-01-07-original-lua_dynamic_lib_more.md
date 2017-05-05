@@ -27,7 +27,7 @@ local cell = require "cell"，local system = require "cell.system"，
 
 下面我就实现了一个so库包含两个模块。
 
-<script src="https://gist.github.com/hanxi/8299600.js"></script>
+https://gist.github.com/hanxi/8299600.js
 
 lua动态链接库就到这里了，接下来会继续阅读[hive][]代码
 
