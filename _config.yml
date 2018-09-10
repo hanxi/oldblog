@@ -14,11 +14,11 @@ description_length: 200
 # so be sure to set them if your theme uses them.
 #
 title : 涵曦的博客
-address: www.hanxi.info
+address: oldblog.hanxi.info
 tagline: coding my life
 author :
   name : 涵曦
-  email : hanxi.com@gmail.com
+  email : hanxi.info@gmail.com
   github : hanxi
   twitter : username
   feedburner : feedname
